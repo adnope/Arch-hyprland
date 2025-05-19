@@ -14,3 +14,6 @@ sudo cp "$SCRIPT_DIR"/grub-theme/* "/boot/grub"
 
 # Copy sddm theme
 sudo cp -r "$SCRIPT_DIR"/sddm-theme/KDE-Story-Dark-SDDM-6 "/usr/share/sddm/themes"
+
+mkdir -p "$HOME"/.local/share/icons
+cp -r "$SCRIPT_DIR"/cursors/* "$HOME"/.local/share/icons
