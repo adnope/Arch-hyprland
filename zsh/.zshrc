@@ -5,8 +5,6 @@ export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="af-magic"
 PYTHON_VENV_NAME=".venv"
 PYTHON_VENV_NAMES=($PYTHON_VENV_NAME venv)
-BROWSER="brave"
-EDITOR="kate"
 
 plugins=(
     aliases
@@ -33,6 +31,6 @@ alias zshrc="kate >/dev/null 2>&1 ~/.zshrc"
 alias ff="fastfetch"
 alias c="clear"
 
-alias chargemode="~/MyScripts/charging_mode.sh" # Used for Lenovo laptops, feel free to remove if you don't need it
+alias chargemode="~/MyScripts/charging-mode.sh" # Used for Lenovo laptops, feel free to remove if you don't need it
 
 alias fkeys="sudo input-remapper-control --command start --device \"SONiX Gaming Keyboard\" --preset fkeys"
