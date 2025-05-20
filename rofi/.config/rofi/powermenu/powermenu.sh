@@ -29,8 +29,8 @@ no=''
 rofi_cmd() {
 	rofi -dmenu \
 		-p "Goodbye ${USER}" \
-		-mesg "Uptime: $uptime" \
 		-theme ${dir}/style.rasi
+		# -mesg "Uptime: $uptime" \
 }
 
 # Confirmation CMD

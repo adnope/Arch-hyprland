@@ -16,4 +16,6 @@ sudo cp "$SCRIPT_DIR"/grub-theme/* "/boot/grub"
 sudo cp -r "$SCRIPT_DIR"/sddm-theme/KDE-Story-Dark-SDDM-6 "/usr/share/sddm/themes"
 
 mkdir -p "$HOME"/.local/share/icons
-cp -r "$SCRIPT_DIR"/cursors/* "$HOME"/.local/share/icons
+for archive in "$SCRIPT_DIR"/cursors/*; do
+    tar -xf "$archive" -C "$HOME"/.local/share/icons
+done

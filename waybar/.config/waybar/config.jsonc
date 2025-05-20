@@ -1,0 +1,139 @@
+{
+  "layer": "top",
+  "spacing": 0,
+  "height": 0,
+  "reload_style_on_change": true,
+  "modules-left": [
+    "hyprland/workspaces",
+    "custom/right1",
+    "hyprland/window"
+  ],
+  "modules-center": [
+    "custom/left1",
+    "temperature",
+    "custom/left2",
+    "memory",
+    "custom/left3",
+    "cpu",
+    "custom/leftin1",
+    "custom/left_distro",
+    "custom/distro",
+    "custom/right_distro",
+    "custom/rightin1",
+    "clock",
+    "custom/right1"
+  ],
+  "modules-right": [
+    "tray",
+    "battery",
+    "network",
+    "pulseaudio"
+  ],
+  "hyprland/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": true,
+    "tooltip": false
+  },
+  "hyprland/window": {
+    "format": " {title}",
+    "max-length": 25,
+    "rewrite": {
+      // "(.*) Zen Browser": "🌎$1"
+    }
+  },
+  "tray": {
+    "spacing": 10,
+    "tooltip": false
+  },
+  "clock": {
+    "format": "{:%I:%M %p - %a, %d %b %Y}",
+    "tooltip": false
+  },
+  "temperature": {
+    "format": "󰔏 {}°C",
+    "interval": 5,
+    "min-length": 6,
+    "max-length": 6
+  },
+  "memory": {
+    "states": {
+      "warning": 75,
+      "critical": 90
+    },
+    "format": "󰘚 {percentage}%",
+    "format-critical": "󰀦 {percentage}%",
+    "tooltip": true,
+    "tooltip-format": "Used: {used:0.1f} GB / {total:0.1f} GB",
+    "interval": 5,
+    "min-length": 6,
+    "max-length": 6
+  },
+  "cpu": {
+    "format": "󰻠 {usage}%",
+    "tooltip": true,
+    "interval": 5,
+    "min-length": 6,
+    "max-length": 6
+  },
+  "custom/distro": {
+    "format": "  ",
+    "tooltip": false
+  },
+  "battery": {
+    "format": "bat {capacity}%",
+    "interval": 5,
+    "states": {
+      "warning": 20,
+      "critical": 10
+    },
+    "tooltip": false
+  },
+  "network": {
+    "format-wifi": "wifi {bandwidthDownBits}",
+    "format-ethernet": "enth {bandwidthDownBits}",
+    "format-disconnected": "no network",
+    "interval": 5,
+    "tooltip": false
+  },
+  "pulseaudio": {
+    "scroll-step": 5,
+    "max-volume": 150,
+    "format": "vol {volume}%",
+    "format-bluetooth": "vol {volume}%",
+    "nospacing": 1,
+    "on-click": "pavucontrol",
+    "tooltip": false
+  },
+  "custom/left1": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/left2": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/left3": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/left_distro": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/right1": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/right_distro": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/leftin1": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/rightin1": {
+    "format": "",
+    "tooltip": false
+  }
+}
