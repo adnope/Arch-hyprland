@@ -8,11 +8,11 @@
 }
 
 window#waybar {
-  background: shade(#11111b, 0.5);
+  background: #181926
 }
 
 window#waybar>box {
-  margin: 2px;
+  margin-bottom: 1px;
   background: #181926;
 }
 
@@ -20,6 +20,19 @@ tooltip {
   background: #181926;
   border: 1.5px solid #CAD3F5;
   border-radius: 8px;
+}
+
+#temperature,
+#memory,
+#cpu,
+#clock.date,
+#clock.time,
+#network,
+#tray,
+#pulseaudio,
+#backlight,
+#battery {
+  color: #CAD3F5;
 }
 
 /* ────────────────────────────────────────────────────────┤ workspaces ├─── */
@@ -48,9 +61,7 @@ tooltip {
 
 #custom-right1 {
   color: #1E2030;
-  font-size: 26;
   padding-right: 4px;
-  text-shadow: 4px 0 2px rgba(0, 0, 0, 0.5);
 }
 
 /* ────────────────────────────────────────────────────────┤ window title ├─── */
@@ -59,18 +70,9 @@ tooltip {
 }
 
 /* ────────────────────────────────────────────────────────┤ distro left side ├─── */
-#temperature,
-#memory,
-#cpu {
-  padding: 2px 0px;
-  color: #CAD3F5;
-}
-
 #custom-left1 {
   color: #1E2030;
-  font-size: 26;
   padding-left: 4px;
-  text-shadow: -4px 0 2px rgba(0, 0, 0, 0.5);
 }
 
 #temperature {
@@ -80,10 +82,8 @@ tooltip {
 
 #custom-left2 {
   color: #24273A;
-  font-size: 26;
   padding-left: 4px;
   margin-left: -16px;
-  text-shadow: -4px 0 2px rgba(0, 0, 0, 0.5);
 }
 
 #memory {
@@ -93,10 +93,8 @@ tooltip {
 
 #custom-left3 {
   color: #363A4F;
-  font-size: 26;
   padding-left: 4px;
   margin-left: -16px;
-  text-shadow: -4px 0 2px rgba(0, 0, 0, 0.5);
 }
 
 #cpu {
@@ -138,21 +136,76 @@ tooltip {
   text-shadow: -4px 0 2px rgba(0, 0, 0, 0.5);
 }
 
-#clock {
-  background: #939AB7;
-  border: 2px solid #88c0cf;
-  color: black;
+#clock.time {
+  background: #363A4F;
+}
+
+#custom-right2 {
+  background: #24273A;
+  color: #363A4F;
+  padding-right: 8px;
+}
+
+#clock.date {
+  background: #24273A;
+  padding-right: 4px;
+}
+
+#custom-right3 {
+  background: #1E2030;
+  color: #24273A;
+  padding-right: 4px;
+}
+
+#network {
+  background: #1E2030;
+  padding-right: 0px;
+}
+
+#custom-right4 {
+  color: #1E2030;
+  padding-right: 8px;
+}
+
+/* ────────────────────────────────────────────────────────┤ right side ├─── */
+#custom-left4 {
+  color: #1E2030;
+  padding-left: 4px;
 }
 
 #tray {
-  background: #2E3440;
-  border: 2px solid #88c0cf;
+  background: #1E2030;
+}
+
+#custom-left5 {
+  background: #1E2030;
+  color: #24273A;
+  padding-left: 16px;
+}
+
+#pulseaudio {
+  background: #24273A;
+}
+
+#custom-left6 {
+  background: #24273A;
+  color: #363A4F;
+  padding-left: 4px;
+}
+
+#backlight {
+  background: #363A4F;
+}
+
+#custom-left7 {
+  color: #939AB7;
+  background: #363A4F;
+  padding-left: 4px;
 }
 
 #battery {
-  background: #2E3440;
-  border: 2px solid #88c0cf;
-  color: #CAD3F5;
+  background: #939AB7;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 1);
 }
 
 #cpu.critical,
@@ -168,4 +221,23 @@ tooltip {
   background: #2E3440;
   border: 2px solid #88c0cf;
   color: #c14a4a;
+}
+
+#custom-left1,
+#custom-left2,
+#custom-left3,
+#custom-left4,
+#custom-left5,
+#custom-left6,
+#custom-left7 {
+  font-size: 26;
+  text-shadow: -4px 0 2px rgba(0, 0, 0, 0.5);
+}
+
+#custom-right1,
+#custom-right2,
+#custom-right3,
+#custom-right4 {
+  font-size: 26;
+  text-shadow: 4px 0 2px rgba(0, 0, 0, 0.5);
 }
