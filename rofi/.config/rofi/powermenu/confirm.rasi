@@ -1,36 +1,31 @@
-/**
- *
- * Author : Aditya Shakya (adi1090x)
- * Github : @adi1090x
- * 
- * Rofi Theme File
- * Rofi Version: 1.7.3
- **/
+/*****----- Global Properties -----*****/
+@import "~/.config/rofi/colors/onedark.rasi"
+
+* {
+    font: "JetBrains Mono Nerd Font 14";
+}
 
 /*****----- Configuration -----*****/
 configuration {
     show-icons:                 false;
 }
 
-/*****----- Global Properties -----*****/
-@import                          "colors.rasi"
-@import                          "fonts.rasi"
-
 /*****----- Main Window -----*****/
 window {
     location:                    center;
     anchor:                      center;
     fullscreen:                  false;
-    width:                       500px;
-    border-radius:               20px;
-    cursor:                      "default";
+    width:                       300px;
+    border:                      2px solid;
+    border-radius:               25px;
+    border-color:                @selected;
     background-color:            @background;
 }
 
 /*****----- Main Box -----*****/
 mainbox {
-    spacing:                     30px;
-    padding:                     30px;
+    spacing:                     20px;
+    padding:                     20px;
     background-color:            transparent;
     children:                    [ "message", "listview" ];
 }
@@ -65,7 +60,7 @@ listview {
     fixed-height:                true;
     fixed-columns:               true;
     
-    spacing:                     30px;
+    spacing:                     20px;
     background-color:            transparent;
     text-color:                  @foreground;
     cursor:                      "default";
@@ -73,7 +68,7 @@ listview {
 
 /*****----- Elements -----*****/
 element {
-    padding:                     60px 10px;
+    padding:                     20px 20px;
     border-radius:               20px;
     background-color:            @background-alt;
     text-color:                  @foreground;
@@ -84,10 +79,10 @@ element-text {
     background-color:            transparent;
     text-color:                  inherit;
     cursor:                      inherit;
-    vertical-align:              0.5;
-    horizontal-align:            0.5;
+    vertical-align:              0.25;
+    horizontal-align:            0.25;
 }
 element selected.normal {
-    background-color:            var(selected);
-    text-color:                  var(background);
+    background-color:            @selected;
+    text-color:                  @background;
 }

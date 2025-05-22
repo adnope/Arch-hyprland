@@ -1,14 +1,3 @@
-#!/usr/bin/env bash
-
-## Author : Aditya Shakya (adi1090x)
-## Github : @adi1090x
-#
-## Rofi   : Power Menu
-#
-## Available Styles
-#
-## style-1   style-2   style-3   style-4   style-5
-
 # Current Theme
 dir="$HOME/.config/rofi/powermenu"
 
@@ -30,7 +19,7 @@ rofi_cmd() {
 	rofi -dmenu \
 		-p "Goodbye ${USER}" \
 		-theme ${dir}/style.rasi
-		# -mesg "Uptime: $uptime" \
+		# -mesg "Uptime: $uptime"
 }
 
 # Confirmation CMD
@@ -48,7 +37,7 @@ confirm_exit() {
 
 # Pass variables to rofi dmenu
 run_rofi() {
-	echo -e "$lock\n$suspend\n$logout\n$reboot\n$shutdown" | rofi_cmd
+	echo -e "$shutdown\n$logout\n$reboot\n$lock\n$suspend" | rofi_cmd
 }
 
 # Execute Command
@@ -59,11 +48,12 @@ run_cmd() {
 			systemctl poweroff
 		elif [[ $1 == '--reboot' ]]; then
 			systemctl reboot
+		# elif [[ $1 == '--lock' ]]; then
 		elif [[ $1 == '--suspend' ]]; then
 			playerctl pause
 			systemctl suspend
 		elif [[ $1 == '--logout' ]]; then
-			i3-msg exit
+			hyprctl dispatch exit
 		fi
 	else
 		exit 0
@@ -80,11 +70,7 @@ case ${chosen} in
 		run_cmd --reboot
         ;;
     $lock)
-		if [[ -x '/usr/bin/betterlockscreen' ]]; then
-			betterlockscreen -l
-		elif [[ -x '/usr/bin/i3lock' ]]; then
-			i3lock
-		fi
+		run_cmd --lock
         ;;
     $suspend)
 		run_cmd --suspend

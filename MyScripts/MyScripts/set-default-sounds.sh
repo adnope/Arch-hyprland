@@ -26,6 +26,7 @@ esac
 
 # Find the sink with the specified keyword in its name
 sink=$(pactl list sinks short | grep "$keyword" | awk '{print $1}')
+source=$(pactl list sources short | grep "input" | grep "$keyword" | awk '{print $1}')
 
 # Check if a sink was found and set it as the default
 if [ -n "$sink" ]; then
@@ -33,4 +34,11 @@ if [ -n "$sink" ]; then
     echo "Set $keyword sink (ID: $sink) as the default sink."
 else
     echo "No $keyword sink found."
+fi
+
+if [ -n "$source" ]; then
+    pactl set-default-source "$source"
+    echo "Set $keyword source (ID: $sink) as the default sink."
+else
+    echo "No $keyword source found."
 fi

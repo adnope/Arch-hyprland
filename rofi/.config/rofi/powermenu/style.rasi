@@ -28,11 +28,11 @@ configuration {
     textbox-font:                "JetBrains Mono Nerd Font Bold 16";
     element-text-font:           "feather 64";
 
-    background-window:           black/95%;
-    background-normal:           white/5%;
-    background-selected:         white/15%;
+    background-window:           black/85%;
+    background-normal:           #282B31;
+    background-selected:         #61AFEF;
     foreground-normal:           white;
-    foreground-selected:         white;
+    foreground-selected:         #282B31;
 }
 
 /*****----- Main Window -----*****/

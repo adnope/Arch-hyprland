@@ -118,7 +118,7 @@
   "network": {
     "format-wifi": " {bandwidthDownBytes}",
     "format-ethernet": " {bandwidthDownBytes}",
-    "format-disconnected": "no network",
+    "format-disconnected": "󱛅",
     "min-length": 12,
     "max-length": 12,
     "interval": 2,
@@ -136,6 +136,7 @@
 
     "tooltip-format": "Device: {desc}",
     "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "on-click-right": "pavucontrol",
     "on-scroll-up": "wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+",
     "on-scroll-down": "wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%-",
     "min-length": 8,
@@ -159,7 +160,6 @@
     "format": "{icon} {capacity}%",
     "format-icons": ["󰂎", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
     "format-charging": " {capacity}%",
-
     "tooltip-format": "Discharging: {time}",
     "tooltip-format-charging": "Charging: {time}",
     "interval": 1,

@@ -99,6 +99,7 @@ tooltip {
 
 #cpu {
   background: #363A4F;
+  padding-right: 8px;
 }
 
 #custom-leftin1 {
@@ -210,16 +211,13 @@ tooltip {
 
 #cpu.critical,
 #memory.critical {
-  background: #2E3440;
-  border: 2px solid #88c0cf;
   color: #c14a4a;
 }
 
 #battery.warning,
-#battery.critical,
-#battery.urgent {
-  background: #2E3440;
-  border: 2px solid #88c0cf;
+#battery.critical {
+  background: #939AB7;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 1);
   color: #c14a4a;
 }
 
