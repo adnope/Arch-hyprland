@@ -33,7 +33,7 @@ stow zsh dunst fastfetch fcitx5 hyprland input-remapper kitty micro MyScripts ro
 ### Main programs:
 
 ```
-sudo pacman -S stow dunst fastfetch hyprpaper hyprpicker kitty micro rofi-wayland starship waybar fzf nemo nemo-fileroller spotify-launcher cliphist brightnessctl playerctl git grim slurp swappy ark 
+sudo pacman -S stow dunst fastfetch hyprpaper hyprpicker kitty micro rofi-wayland starship waybar fzf nemo nemo-fileroller spotify-launcher cliphist brightnessctl playerctl git grim slurp swappy ark jq
 ```
 
 ### System/dependency packages:

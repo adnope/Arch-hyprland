@@ -31,7 +31,8 @@ tooltip {
 #tray,
 #pulseaudio,
 #backlight,
-#battery {
+#battery,
+#custom-weather {
   color: #CAD3F5;
 }
 
@@ -160,7 +161,6 @@ tooltip {
 
 #network {
   background: #1E2030;
-  padding-right: 0px;
 }
 
 #custom-right4 {
@@ -219,6 +219,17 @@ tooltip {
   background: #939AB7;
   text-shadow: 0 0 4px rgba(0, 0, 0, 1);
   color: #c14a4a;
+}
+
+#custom-leftin2 {
+  color: #9198B5;
+  font-size: 26.3;
+  text-shadow: 4px 0 2px rgba(0, 0, 0, 0.5);
+}
+
+#custom-weather {
+  padding-right: 10px;
+  padding-left: 4px;
 }
 
 #custom-left1,

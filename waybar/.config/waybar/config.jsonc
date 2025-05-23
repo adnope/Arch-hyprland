@@ -30,11 +30,13 @@
     "custom/left4",
     "tray",
     "custom/left5",
-    "pulseaudio",  
+    "pulseaudio",
     "custom/left6",
     "backlight",
     "custom/left7",
-    "battery"
+    "battery",
+    "custom/leftin2",
+    "custom/weather"
   ],
   "hyprland/workspaces": {
     "disable-scroll": true,
@@ -47,14 +49,6 @@
     "rewrite": {
       // "(.*) Zen Browser": "🌎$1"
     }
-  },
-  "tray": {
-    "spacing": 12,
-    "tooltip": false
-  },
-  "clock": {
-    "format": "{:%I:%M %p - %a, %d %b %Y}",
-    "tooltip": false
   },
   "temperature": {
     "format": "󰔏 {}°C",
@@ -86,7 +80,7 @@
     "format": "  ",
     "tooltip": false
   },
-   "clock#time": {
+  "clock#time": {
     "format": " {:%H:%M}",
     "tooltip": false,
     // "tooltip-format": "Standard Time: {:%I:%M %p}",
@@ -96,22 +90,16 @@
   "clock#date": {
     "format": "󰨳 {:%d-%m}",
     "tooltip-format": "<tt>{calendar}</tt>",
-
     "calendar": {
       "mode": "month",
       "mode-mon-col": 6,
       "on-click-right": "mode",
-
       "format": {
-        "months": 
-          "<span color='#b4befe'><b>{}</b></span>",
-        "weekdays": 
-          "<span color='#a6adc8' font='7'>{}</span>",
-        "today": 
-          "<span color='#f38ba8'><b>{}</b></span>"
+        "months": "<span color='#b4befe'><b>{}</b></span>",
+        "weekdays": "<span color='#a6adc8' font='7'>{}</span>",
+        "today": "<span color='#f38ba8'><b>{}</b></span>"
       }
     },
-
     "min-length": 8,
     "max-length": 8
   },
@@ -119,21 +107,27 @@
     "format-wifi": " {bandwidthDownBytes}",
     "format-ethernet": " {bandwidthDownBytes}",
     "format-disconnected": "󱛅",
-    "min-length": 12,
-    "max-length": 12,
+    "min-length": 14,
+    "max-length": 14,
     "interval": 2,
+    "tooltip": false
+  },
+  "tray": {
+    "spacing": 12,
     "tooltip": false
   },
   "pulseaudio": {
     "format": "{icon} {volume}%",
     "format-muted": "󰝟 {volume}%",
-
     "format-icons": {
-      "default": ["󰕿", "󰖀", "󰕾"],
+      "default": [
+        "󰕿",
+        "󰖀",
+        "󰕾"
+      ],
       "headphone": "󰋋",
       "headset": "󰋋"
     },
-
     "tooltip-format": "Device: {desc}",
     "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
     "on-click-right": "pavucontrol",
@@ -144,7 +138,17 @@
   },
   "backlight": {
     "format": "{icon} {percent}%",
-    "format-icons": ["", "", "", "", "", "", "", "", ""],
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
     "tooltip": false,
     "on-scroll-up": "brightnessctl set 5%+",
     "on-scroll-down": "brightnessctl set 5%-",
@@ -156,15 +160,31 @@
       "warning": 20,
       "critical": 10
     },
-
     "format": "{icon} {capacity}%",
-    "format-icons": ["󰂎", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+    "format-icons": [
+      "󰂎",
+      "󰁻",
+      "󰁼",
+      "󰁽",
+      "󰁾",
+      "󰁿",
+      "󰂀",
+      "󰂁",
+      "󰂂",
+      "󰁹"
+    ],
     "format-charging": " {capacity}%",
     "tooltip-format": "Discharging: {time}",
     "tooltip-format-charging": "Charging: {time}",
     "interval": 1,
     "min-length": 6,
     "max-length": 6
+  },
+  "custom/weather": {
+    "exec": "$HOME/.config/waybar/scripts/weather.sh",
+    "format": "{}",
+    "return-type": "string",
+    "interval": 300
   },
   "custom/left1": {
     "format": "",
@@ -219,6 +239,10 @@
     "tooltip": false
   },
   "custom/leftin1": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/leftin2": {
     "format": "",
     "tooltip": false
   },
