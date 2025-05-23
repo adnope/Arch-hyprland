@@ -27,12 +27,12 @@ tooltip {
 #cpu,
 #clock.date,
 #clock.time,
-#network,
+#custom-weather,
 #tray,
 #pulseaudio,
 #backlight,
 #battery,
-#custom-weather {
+#custom-network {
   color: #CAD3F5;
 }
 
@@ -79,33 +79,35 @@ tooltip {
 #temperature {
   background: #1E2030;
   padding-right: 24px;
+  margin-right: -16px;
 }
 
 #custom-left2 {
   color: #24273A;
   padding-left: 4px;
-  margin-left: -16px;
+  background: #1E2030;
 }
 
 #memory {
   background: #24273A;
   padding-right: 24px;
+  margin-right: -16px;
 }
 
 #custom-left3 {
+  background: #24273A;
   color: #363A4F;
   padding-left: 4px;
-  margin-left: -16px;
 }
 
 #cpu {
   background: #363A4F;
-  padding-right: 8px;
+  padding-right: 4px;
 }
 
 #custom-leftin1 {
   color: #363A4F;
-  font-size: 26;
+  font-size: 26.3;
   text-shadow: 4px 0 2px rgba(0, 0, 0, 0.5);
 }
 
@@ -134,11 +136,12 @@ tooltip {
 /* ────────────────────────────────────────────────────────┤ distro right side ├─── */
 #custom-rightin1 {
   color: #363A4F;
-  font-size: 26;
+  font-size: 26.3;
   text-shadow: -4px 0 2px rgba(0, 0, 0, 0.5);
 }
 
 #clock.time {
+  padding-left: 8px;
   background: #363A4F;
 }
 
@@ -156,10 +159,10 @@ tooltip {
 #custom-right3 {
   background: #1E2030;
   color: #24273A;
-  padding-right: 4px;
+  padding-right: 8px;
 }
 
-#network {
+#custom-weather {
   background: #1E2030;
 }
 
@@ -186,6 +189,8 @@ tooltip {
 
 #pulseaudio {
   background: #24273A;
+  padding-right: 8px;
+  padding-left: 4px;
 }
 
 #custom-left6 {
@@ -196,6 +201,8 @@ tooltip {
 
 #backlight {
   background: #363A4F;
+  padding-right: 8px;
+  padding-left: 4px;
 }
 
 #custom-left7 {
@@ -207,6 +214,8 @@ tooltip {
 #battery {
   background: #939AB7;
   text-shadow: 0 0 4px rgba(0, 0, 0, 1);
+  padding-right: 8px;
+  padding-left: 4px;
 }
 
 #cpu.critical,
@@ -225,11 +234,6 @@ tooltip {
   color: #9198B5;
   font-size: 26.3;
   text-shadow: 4px 0 2px rgba(0, 0, 0, 0.5);
-}
-
-#custom-weather {
-  padding-right: 10px;
-  padding-left: 4px;
 }
 
 #custom-left1,

@@ -23,7 +23,7 @@
     "custom/right2",
     "clock#date",
     "custom/right3",
-    "network",
+    "custom/weather",
     "custom/right4"
   ],
   "modules-right": [
@@ -36,7 +36,7 @@
     "custom/left7",
     "battery",
     "custom/leftin2",
-    "custom/weather"
+    "custom/network"
   ],
   "hyprland/workspaces": {
     "disable-scroll": true,
@@ -84,8 +84,8 @@
     "format": " {:%H:%M}",
     "tooltip": false,
     // "tooltip-format": "Standard Time: {:%I:%M %p}",
-    "min-length": 10,
-    "max-length": 10
+    "min-length": 8,
+    "max-length": 8
   },
   "clock#date": {
     "format": "󰨳 {:%d-%m}",
@@ -103,14 +103,10 @@
     "min-length": 8,
     "max-length": 8
   },
-  "network": {
-    "format-wifi": " {bandwidthDownBytes}",
-    "format-ethernet": " {bandwidthDownBytes}",
-    "format-disconnected": "󱛅",
-    "min-length": 14,
-    "max-length": 14,
-    "interval": 2,
-    "tooltip": false
+  "custom/network": {
+    "exec": "$HOME/.config/waybar/scripts/networkspeed.sh",
+    "interval": 1,
+    "min-length": 16
   },
   "tray": {
     "spacing": 12,
@@ -132,9 +128,7 @@
     "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
     "on-click-right": "pavucontrol",
     "on-scroll-up": "wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+",
-    "on-scroll-down": "wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%-",
-    "min-length": 8,
-    "max-length": 8
+    "on-scroll-down": "wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%-"
   },
   "backlight": {
     "format": "{icon} {percent}%",
@@ -151,9 +145,7 @@
     ],
     "tooltip": false,
     "on-scroll-up": "brightnessctl set 5%+",
-    "on-scroll-down": "brightnessctl set 5%-",
-    "min-length": 8,
-    "max-length": 8
+    "on-scroll-down": "brightnessctl set 5%-"
   },
   "battery": {
     "states": {
@@ -176,13 +168,10 @@
     "format-charging": " {capacity}%",
     "tooltip-format": "Discharging: {time}",
     "tooltip-format-charging": "Charging: {time}",
-    "interval": 1,
-    "min-length": 6,
-    "max-length": 6
+    "interval": 1
   },
   "custom/weather": {
     "exec": "$HOME/.config/waybar/scripts/weather.sh",
-    "format": "{}",
     "return-type": "string",
     "interval": 300
   },

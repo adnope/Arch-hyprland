@@ -61,8 +61,8 @@ QUERY="Hanoi"
 json_response=$(curl -s "http://api.weatherapi.com/v1/current.json?key=$API_KEY&q=$QUERY")
 
 icon_url=$(jq -r '.current.condition.icon' <<< $json_response)
-icon_code="${icon_url##*/day/}"
-icon_code="${icon_code%%.*}"
+icon_code=${icon_url##*/}
+icon_code=${icon_code%%.*}
 
 ICON="${WEATHER_ICONS[$icon_code]:-❓}"
 TEMP_C=$(jq -r '.current.temp_c' <<< $json_response)
