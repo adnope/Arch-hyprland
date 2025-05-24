@@ -37,11 +37,20 @@ setopt hist_save_no_dups
 setopt hist_ignore_dups
 
 # KEYBINDS
-bindkey '^k' history-search-backward
-bindkey '^n' history-search-forward
+bindkey -e
+bindkey '^[[A' history-search-backward		# UP ARROW: History backward
+bindkey '^[[B' history-search-forward		# DOWN ARROW: History forward
+bindkey '^[[1;5C' forward-word				# CTRL + RIGHT ARROW: Move 1 word forward	
+bindkey '^[[1;5D' backward-word				# CTRL + LEFT ARROW: Move 1 word backward
+bindkey '^E' kill-word						# CTRL + E: Delete word after
+bindkey '^W' backward-kill-word				# CTRL + W: Delete word before
+bindkey '^D' end-of-line					# CTRL + D: End of line
+bindkey '^Z' undo							# CTRL + Z
+bindkey '^Y' redo							# CTRL + Y
+bindkey '^[[3~' delete-char 				# DELETE
 
 # PERSONAL ALIASES
-alias ls="ls --color"
+alias ls="eza -1als name"
 alias la="ls -lAFh --color"
 alias uzsh="exec zsh"
 alias zshrc="micro ~/.zshrc"

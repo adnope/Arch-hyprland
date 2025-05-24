@@ -12,7 +12,7 @@ Start a fresh Arch installation with the `archinstall` script. The following opt
 
 Post-install commands:
 ```
-pacman -S zsh stow git
+pacman -Syu zsh stow git
 chsh -s /usr/bin/zsh
 ```
 
@@ -20,7 +20,7 @@ Restart your PC to Arch Linux.
 
 ## 2. Installing packages
 
-### Copy dotfiles as symlinks:
+### Stow the dotfiles:
 
 ```
 cd & git clone https://github.com/adnope/Arch-hyprland
@@ -31,13 +31,13 @@ stow config
 ### Main programs:
 
 ```
-sudo pacman -S dunst fastfetch hyprpaper hyprpicker kitty micro rofi-wayland starship waybar fzf nemo nemo-fileroller spotify-launcher cliphist brightnessctl playerctl git grim slurp swappy ark jq swaybg zoxide
+sudo pacman -S dunst fastfetch hyprpaper hyprpicker kitty micro rofi-wayland starship waybar fzf nemo nemo-fileroller spotify-launcher cliphist brightnessctl playerctl git grim slurp swappy ark swaybg zoxide eza bat
 ```
 
 ### System/dependency packages:
 
 ```
-sudo pacman -S imagemagick blueman bluez ffmpegthumbnailer polkit-kde-agent kwallet kwallet-pam libheif libpulse libraw linux-headers linux-zen-headers network-manager-applet os-prober pavucontrol
+sudo pacman -S imagemagick blueman bluez ffmpegthumbnailer polkit-kde-agent kwallet kwallet-pam libheif libpulse libraw linux-headers linux-zen-headers network-manager-applet os-prober pavucontrol jq man tldr
 ```
 
 ### AUR packages:
@@ -58,8 +58,6 @@ sudo pacman -S fcitx5 fcitx5-bamboo fcitx5-configtool fcitx5-qt fcitx5-gtk fcitx
 
 ```
 ./assets/copy_script.sh
-sudo sh -c 'echo -e "[Theme]\nCurrent=KDE-Story-Dark-SDDM-6"' >> /etc/sddm.conf.d/sddm.conf
-echo -e 'GRUB_FONT="/boot/grub/zed-mono-nerd.pf2"\nGRUB_BACKGROUND="/boot/grub/background.jpg"' | sudo tee -a /etc/default/grub > /dev/null && sudo grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
 ### Windows fonts
