@@ -25,15 +25,13 @@ Restart your PC to Arch Linux.
 ```
 cd & git clone https://github.com/adnope/Arch-hyprland
 cd Arch-hyprland
-sudo pacman -S stow zsh
-sudo chsh -s /usr/bin/zsh
-stow zsh dunst fastfetch fcitx5 hyprland input-remapper kitty micro MyScripts rofi starship waybar
+stow config
 ```
 
 ### Main programs:
 
 ```
-sudo pacman -S stow dunst fastfetch hyprpaper hyprpicker kitty micro rofi-wayland starship waybar fzf nemo nemo-fileroller spotify-launcher cliphist brightnessctl playerctl git grim slurp swappy ark jq swaybg zoxide
+sudo pacman -S dunst fastfetch hyprpaper hyprpicker kitty micro rofi-wayland starship waybar fzf nemo nemo-fileroller spotify-launcher cliphist brightnessctl playerctl git grim slurp swappy ark jq swaybg zoxide
 ```
 
 ### System/dependency packages:
