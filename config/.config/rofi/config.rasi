@@ -8,7 +8,7 @@
 
 configuration {
 	/*---------- General setting ----------*/
-	modi: "drun,run,filebrowser,window";
+	modi: "drun,run,filebrowser,window,calc";
 	case-sensitive: false;
 	cycle: true;
 	filter: "";
@@ -104,23 +104,22 @@ configuration {
     }
 
 	/*---------- Keybindings ----------*/
-/*
-	kb-primary-paste: "Control+V,Shift+Insert";
-	kb-secondary-paste: "Control+v,Insert";
-	kb-clear-line: "Control+w";
+	kb-primary-paste: "Control+V";
+	kb-secondary-paste: "Control+v";
+	kb-clear-line: "Control+u";
 	kb-move-front: "Control+a";
-	kb-move-end: "Control+e";
-	kb-move-word-back: "Alt+b,Control+Left";
-	kb-move-word-forward: "Alt+f,Control+Right";
-	kb-move-char-back: "Left,Control+b";
-	kb-move-char-forward: "Right,Control+f";
-	kb-remove-word-back: "Control+Alt+h,Control+BackSpace";
-	kb-remove-word-forward: "Control+Alt+d";
-	kb-remove-char-forward: "Delete,Control+d";
-	kb-remove-char-back: "BackSpace,Shift+BackSpace,Control+h";
-	kb-remove-to-eol: "Control+k";
-	kb-remove-to-sol: "Control+u";
-	kb-accept-entry: "Control+j,Control+m,Return,KP_Enter";
+	kb-move-end: "Control+d";
+	kb-move-word-back: "Control+Left";
+	kb-move-word-forward: "Control+Right";
+	kb-move-char-back: "Left";
+	kb-move-char-forward: "Right";
+	kb-remove-word-back: "Control+w,Control+BackSpace";
+	kb-remove-word-forward: "Control+e,Control+Delete";
+	kb-remove-char-forward: "Delete";
+	kb-remove-char-back: "BackSpace";
+	kb-remove-to-eol: "Control+End";
+	kb-remove-to-sol: "Control+Home";
+	kb-accept-entry: "Return,KP_Enter";
 	kb-accept-custom: "Control+Return";
 	kb-accept-custom-alt: "Control+Shift+Return";
 	kb-accept-alt: "Shift+Return";
@@ -177,5 +176,4 @@ configuration {
 	me-select-entry: "MousePrimary";
 	me-accept-entry: "MouseDPrimary";
 	me-accept-custom: "Control+MouseDPrimary";
-*/
 }

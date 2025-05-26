@@ -78,7 +78,8 @@
   },
   "custom/distro": {
     "format": "  ",
-    "tooltip": false
+    "tooltip": false,
+    "on-click": "$HOME/.config/rofi/systools/menu.sh"
   },
   "clock#time": {
     "format": " {:%H:%M}",

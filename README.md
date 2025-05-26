@@ -31,7 +31,7 @@ stow config
 ### Main programs:
 
 ```
-sudo pacman -S dunst fastfetch hyprpaper hyprpicker kitty micro rofi-wayland starship waybar fzf nemo nemo-fileroller spotify-launcher cliphist brightnessctl playerctl git grim slurp swappy ark swaybg zoxide eza bat
+sudo pacman -S dunst fastfetch swaybg hyprpicker kitty micro rofi-wayland rofi-calc starship waybar nemo nemo-fileroller spotify-launcher cliphist brightnessctl playerctl grim slurp swappy ark fzf zoxide eza bat guvcview nwg-look
 ```
 
 ### System/dependency packages:

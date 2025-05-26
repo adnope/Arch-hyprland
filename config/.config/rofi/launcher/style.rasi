@@ -4,25 +4,41 @@ configuration {
     show-icons:                 true;
     display-drun:               "real";
 	drun-display-format:        "{name}";
+
+    kb-clear-line: "Control+u";
+	kb-move-front: "Control+a";
+	kb-move-end: "Control+d";
+	kb-move-word-back: "Control+Left";
+	kb-move-word-forward: "Control+Right";
+	kb-move-char-back: "Left";
+	kb-move-char-forward: "Right";
+	kb-remove-word-back: "Control+w,Control+BackSpace";
+	kb-remove-word-forward: "Control+e,Control+Delete";
+	kb-remove-char-forward: "Delete";
+	kb-remove-char-back: "BackSpace";
+	kb-remove-to-eol: "Control+End";
+	kb-remove-to-sol: "Control+Home";
 }
 mode-switcher {
     enabled:                     false;
 }
 
 /*****----- Global Properties -----*****/
-@import "~/.config/rofi/colors/onedark.rasi"
 * {
-    foreground-alt: rgba(255, 255, 255, 0.5);
+    foreground-alt:            rgba(255, 255, 255, 0.5);
+    background-alt:            rgba(147, 154, 183, 0.2);
+    background:                #1E2127FF;
+    foreground:                #FFFFFFFF;
+    selected:                  #939AB7FF;
     font:                        "JetBrains Mono Nerd Font 14";
 }
 
 /*****----- Main Window -----*****/
 window {
     /* properties for window widget */
-    transparency:                "real";
-    location:                    center;
-    anchor:                      center;
-    fullscreen:                  true;
+    fullscreen:                  false;
+    width:                       600px;
+    height:                      400px;
 
     /* properties for all widgets */
     enabled:                     true;
@@ -33,20 +49,19 @@ window {
 mainbox {
     enabled:                     true;
     spacing:                     10px;
-    padding:                     30px;
+    padding:                     10px;
     border-color:                @selected;
     background-color:            @background;
     children:                    [ "inputbar", "listview"];
     border:                      2px solid;
-    border-radius:               25px;
     border-color:                @selected;
-    margin:                      400px 600px 400px 600px;
 }
 
 /*****----- Inputbar -----*****/
 inputbar {
     enabled:                     true;
     spacing:                     10px;
+    padding:                     0px 0px 0px 10px;
     background-color:            transparent;
     text-color:                  @foreground;
     children:                    [ "textbox-prompt-colon", "entry"];
@@ -79,22 +94,18 @@ entry {
 listview {
     enabled:                     true;
     columns:                     1;
-    cycle:                       true;
-    dynamic:                     true;
+    cycle:                       false;
     scrollbar:                   true;
     layout:                      vertical;
     reverse:                     false;
-    fixed-height:                true;
-    fixed-columns:               true;
     
     spacing:                     5px;
     background-color:            transparent;
     text-color:                  @foreground;
 }
 scrollbar {
-    handle-width:                7px ;
+    handle-width:                5px ;
     handle-color:                @selected;
-    border-radius:               20px;
     background-color:            @background-alt;
 }
 
@@ -102,11 +113,9 @@ scrollbar {
 element {
     enabled:                     true;
     spacing:                     10px;
-    margin:                      0px 20px 0px 0px;
+    margin:                      0px 10px 0px 0px;
     padding:                     5px 10px;
     border:                      0px solid;
-    border-radius:               15px;
-    border-color:                @selected;
     background-color:            transparent;
     text-color:                  @foreground;
     cursor:                      pointer;
@@ -123,13 +132,8 @@ element-icon {
     background-color:            transparent;
     text-color:                  inherit;
     size:                        24px;
-    cursor:                      inherit;
 }
 element-text {
     background-color:            transparent;
     text-color:                  inherit;
-    highlight:                   inherit;
-    cursor:                      inherit;
-    vertical-align:              0.5;
-    horizontal-align:            0.0;
 }
