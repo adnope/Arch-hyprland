@@ -1,4 +1,4 @@
-# My hyprland config for a fresh Arch installation
+# My minimal system setup with Hyprland for a fresh Arch installation.
 
 ![](assets/preview.png)
 
