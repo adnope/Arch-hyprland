@@ -1,5 +1,7 @@
 # My hyprland config for a fresh Arch installation
 
+[](assets/preview.png)
+
 ## 1. Initial setup & installation
 
 Start a fresh Arch installation with the `archinstall` script. The following options are recommended:
