@@ -21,7 +21,7 @@ theme="
     mainbox {
         enabled:                    true;
         spacing:                    10px;
-        padding:                    10px;
+        padding:                    10px 0px;
         border-color:               @selected;
         background-color:           @background;
         children:                   [ \"inputbar\", \"listview\"];
@@ -29,6 +29,7 @@ theme="
         border-color:               @selected;
     }
     inputbar {
+        padding:                    0px 0px 0px 20px;
         enabled:                    true;
         background-color:           transparent;
         text-color:                 @foreground;

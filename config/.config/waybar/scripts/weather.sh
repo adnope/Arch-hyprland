@@ -1,74 +1,37 @@
-#! /usr/bin/env bash
-set -eo pipefail
+#!/usr/bin/env bash
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+API_KEY=$(<"$SCRIPT_DIR"/ignore/weather_api_key.env)
+LOCATION="Hanoi"
 
-declare -A WEATHER_ICONS=(
-    ["113"]="☀️"
-    ["116"]="⛅️"
-    ["119"]="☁️"
-    ["122"]="☁️"
-    ["143"]="🌫"
-    ["176"]="🌦"
-    ["179"]="🌧"
-    ["182"]="🌧"
-    ["185"]="🌧"
-    ["200"]="⛈"
-    ["227"]="🌨"
-    ["230"]="❄️"
-    ["248"]="🌫"
-    ["260"]="🌫"
-    ["263"]="🌦"
-    ["266"]="🌦"
-    ["281"]="🌧"
-    ["284"]="🌧"
-    ["293"]="🌦"
-    ["296"]="🌦"
-    ["299"]="🌧"
-    ["302"]="🌧"
-    ["305"]="🌧"
-    ["308"]="🌧"
-    ["311"]="🌧"
-    ["314"]="🌧"
-    ["317"]="🌧"
-    ["320"]="🌨"
-    ["323"]="🌨"
-    ["326"]="🌨"
-    ["329"]="❄️"
-    ["332"]="❄️"
-    ["335"]="❄️"
-    ["338"]="❄️"
-    ["350"]="🌧"
-    ["353"]="🌦"
-    ["356"]="🌧"
-    ["359"]="🌧"
-    ["362"]="🌧"
-    ["365"]="🌧"
-    ["368"]="🌨"
-    ["371"]="❄️"
-    ["374"]="🌧"
-    ["377"]="🌧"
-    ["386"]="⛈"
-    ["389"]="🌩"
-    ["392"]="⛈"
-    ["395"]="❄️"
+declare -A ICONS=(
+  ["113"]="☀️" ["116"]="⛅️" ["119"]="☁️" ["122"]="☁️" ["143"]="🌫"
+  ["176"]="🌦" ["179"]="🌧" ["182"]="🌧" ["185"]="🌧" ["200"]="⛈"
+  ["227"]="🌨" ["230"]="❄️" ["248"]="🌫" ["260"]="🌫" ["263"]="🌦"
+  ["266"]="🌦" ["281"]="🌧" ["284"]="🌧" ["293"]="🌦" ["296"]="🌦"
+  ["299"]="🌧" ["302"]="🌧" ["305"]="🌧" ["308"]="🌧" ["311"]="🌧"
+  ["314"]="🌧" ["317"]="🌧" ["320"]="🌨" ["323"]="🌨" ["326"]="🌨"
+  ["329"]="❄️" ["332"]="❄️" ["335"]="❄️" ["338"]="❄️" ["350"]="🌧"
+  ["353"]="🌦" ["356"]="🌧" ["359"]="🌧" ["362"]="🌧" ["365"]="🌧"
+  ["368"]="🌨" ["371"]="❄️" ["374"]="🌧" ["377"]="🌧" ["386"]="⛈"
+  ["389"]="🌩" ["392"]="⛈" ["395"]="❄️"
 )
 
-# Put your weatherapi.com API key in this variable
-API_KEY=$(cat "$SCRIPT_DIR"/ignore/weather_api_key.env)
-QUERY="Hanoi"
+response=$(curl -s "http://api.weatherapi.com/v1/current.json?key=$API_KEY&q=$LOCATION")
 
-json_response=$(curl -s "http://api.weatherapi.com/v1/current.json?key=$API_KEY&q=$QUERY")
+temp_c=$(jq -r '.current.temp_c' <<<"$response")
+feels_like=$(jq -r '.current.feelslike_c' <<<"$response")
+condition_text=$(jq -r '.current.condition.text' <<<"$response")
+icon_url=$(jq -r '.current.condition.icon' <<<"$response")
+city=$(jq -r '.location.name' <<<"$response")
+country=$(jq -r '.location.country' <<<"$response")
 
-icon_url=$(jq -r '.current.condition.icon' <<< $json_response)
-icon_code=${icon_url##*/}
-icon_code=${icon_code%%.*}
+# extract the 3-digit code from the URL, e.g. ".../176.png" → "176"
+code_from_url=${icon_url##*/}   # strips everything up to last "/"
+code_from_url=${code_from_url%.png}  # strips the ".png"
 
-ICON="${WEATHER_ICONS[$icon_code]:-❓}"
-TEMP_C=$(jq -r '.current.temp_c' <<< $json_response)
+icon="${ICONS[$code_from_url]}"
+[ -z "$icon" ] && icon="❓"
 
-LOCATION=$(jq -r '.location.name' <<< $json_response)/$(jq -r '.location.country' <<< $json_response)
-CONDITION_TEXT=$(jq -r '.current.condition.text' <<< $json_response)
-TEMP_FEELSLIKE=$(jq -r '.current.feelslike_c' <<< $json_response)\
-
-echo -e "$ICON $TEMP_C°C\n$LOCATION: $CONDITION_TEXT, Feels like: $TEMP_FEELSLIKE°C"
+echo "$icon ${temp_c}°C"
+echo "${city}/${country}: ${condition_text}, Feels like: ${feels_like}°C"
