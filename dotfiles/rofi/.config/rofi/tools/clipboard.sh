@@ -3,14 +3,14 @@
 theme="
     @import \"~/.config/rofi/colors/may2025.rasi\"
     * {
-        font: \"JetBrains Mono Nerd Font 14\";
+        font: \"JetBrains Mono Nerd Font 12\";
     }
     mode-switcher {
         enabled: false;
     }
     window {
-        width:                      400px;
-        height:                     400px;
+        width:                      800px;
+        height:                     600px;
         border:                     0px;
         /* properties for all widgets */
         enabled:                    true;
@@ -67,26 +67,4 @@ theme="
     }
 "
 
-script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-
-declare -A ACTION=(
-  [Audio]="$script_dir/audioswitch.sh"
-  [Calculator]="$script_dir/calculator.sh"
-  [Kill by name]="$script_dir/killprocess.sh"
-  [Shutdown]="systemctl poweroff"
-  [Reboot]="systemctl reboot"
-  [Sleep]="systemctl suspend"
-  [Hibernate]="systemctl hibernate"
-  [Kill by clicking]="hyprctl kill"
-)
-
-modes=("${!ACTION[@]}")
-choice=$(printf '%s\n' "${modes[@]}" \
-         | sort \
-         | rofi -dmenu -i -p "Tools: " -theme-str "$theme" \
-         || exit 0)
-
-cmd="${ACTION[$choice]}"
-if [[ -n $cmd ]]; then
-  $cmd
-fi
+cliphist list | rofi -dmenu -i -p "Clipboard: " -theme-str "$theme" | cliphist decode | wl-copy

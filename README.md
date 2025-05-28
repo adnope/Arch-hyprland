@@ -1,6 +1,6 @@
 # My hyprland config for a fresh Arch installation
 
-## 1. Initial setup
+## 1. Initial setup & installation
 
 Start a fresh Arch installation with the `archinstall` script. The following options are recommended:
 - bootloader: grub
@@ -10,55 +10,16 @@ Start a fresh Arch installation with the `archinstall` script. The following opt
 - sound: pipewire
 - network: NetworkManager
 
-Post-install commands:
+Restart your machine and login.
+After logging in, run this command in the terminal:
 ```
-pacman -Syu zsh stow git
-chsh -s /usr/bin/zsh
-```
-
-Restart your PC to Arch Linux.
-
-## 2. Installing packages
-
-### Stow the dotfiles:
-
-```
-cd & git clone https://github.com/adnope/Arch-hyprland
+sudo pacman -S git
+cd && git clone https://github.com/adnope/Arch-hyprland
 cd Arch-hyprland
-stow config
+./setup.sh
 ```
 
-### Main programs:
-
-```
-sudo pacman -S dunst fastfetch swaybg hyprpicker hyprlock kitty micro rofi-wayland rofi-calc starship waybar nemo nemo-fileroller spotify-launcher cliphist brightnessctl playerctl grim slurp swappy ark fzf zoxide eza bat guvcview nwg-look
-```
-
-### System/dependency packages:
-
-```
-sudo pacman -S imagemagick blueman bluez ffmpegthumbnailer polkit-kde-agent kwallet kwallet-pam libheif libpulse libraw linux-headers linux-zen-headers network-manager-applet os-prober pavucontrol jq man tldr
-```
-
-### AUR packages:
-
-```
-yay -S input-remapper-git visual-studio-code-bin zen-browser-bin
-```
-
-### Vietnamese input method:
-
-```
-sudo pacman -S fcitx5 fcitx5-bamboo fcitx5-configtool fcitx5-qt fcitx5-gtk fcitx5-configtool
-```
-
-## 2. Themes & fonts
-
-### SDDM, grub, cursors & fonts
-
-```
-./assets/copy_script.sh
-```
+## 2. Some additional system setups
 
 ### Windows fonts
 
@@ -70,9 +31,7 @@ sudo chmod 644 /usr/local/share/fonts/WindowsFonts/*
 fc-cache --force
 ```
 
-## 3. Some addition steps
-
-### Setting up Nvidia modules
+### Nvidia kernel modules
 
 Include these modules in `/etc/mkinitcpio.conf`:
 ```
@@ -91,7 +50,7 @@ auth            optional        pam_kwallet5.so
 session         optional        pam_kwallet5.so auto_start
 ```
 
-### Setting up swapfile for hibernation
+### Swapfile & Hibernation
 
 Some [instructions](https://wiki.archlinux.org/title/Swap#Swap_file_creation) to create a swapfile from the ArchWiki:
 ```
@@ -101,9 +60,10 @@ sudo swapon /swapfile
 sudo echo "/swapfile none swap defaults 0 0" >> /etc/fstab
 ```
 
-Add the `resume` hook to `/etc/mkinitcpio.conf`, for example:
+Add the `resume` hook to initramfs config:
 ```
-HOOKS=(...filesystems resume fsck)
+# /etc/mkinitcpio.conf
+HOOKS=(...block resume filesystems...)
 ```
 
 Add the resume and resume_offset parameters to the grub config:
