@@ -31,7 +31,7 @@ stow config
 ### Main programs:
 
 ```
-sudo pacman -S dunst fastfetch swaybg hyprpicker kitty micro rofi-wayland rofi-calc starship waybar nemo nemo-fileroller spotify-launcher cliphist brightnessctl playerctl grim slurp swappy ark fzf zoxide eza bat guvcview nwg-look
+sudo pacman -S dunst fastfetch swaybg hyprpicker hyprlock kitty micro rofi-wayland rofi-calc starship waybar nemo nemo-fileroller spotify-launcher cliphist brightnessctl playerctl grim slurp swappy ark fzf zoxide eza bat guvcview nwg-look
 ```
 
 ### System/dependency packages:
@@ -72,10 +72,52 @@ fc-cache --force
 
 ## 3. Some addition steps
 
+### Setting up Nvidia modules
+
+Include these modules in `/etc/mkinitcpio.conf`:
+```
+MODULES=(nvidia nvidia_modeset nvidia_uvm nvidia_drm)
+```
+Then regenerate initramfs:
+```
+sudo mkinitcpio -P
+```
+
 ### KWallet auto unlock
 
 Make sure these lines are present in `/etc/pam.d/sddm`:
 ```
 auth            optional        pam_kwallet5.so
 session         optional        pam_kwallet5.so auto_start
+```
+
+### Setting up swapfile for hibernation
+
+Some [instructions](https://wiki.archlinux.org/title/Swap#Swap_file_creation) to create a swapfile from the ArchWiki:
+```
+# 15897128960 bytes equal 14 GiB or 16GB
+sudo mkswap -U clear --size 15897128960 --file /swapfile
+sudo swapon /swapfile
+sudo echo "/swapfile none swap defaults 0 0" >> /etc/fstab
+```
+
+Add the `resume` hook to `/etc/mkinitcpio.conf`, for example:
+```
+HOOKS=(...filesystems resume fsck)
+```
+
+Add the resume and resume_offset parameters to the grub config:
+```
+# /etc/default/grub
+GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet resume=UUID=123456 resume_offset=123456"
+```
+
+The UUID is the UUID of the partition containing the swapfile and can be retrieved with:
+```
+lsblk -f
+```
+
+Get the offset parameter with this command:
+```
+sudo filefrag -v /swapfile | awk '$1=="0:" {print substr($4, 1, length($4)-2)}'
 ```

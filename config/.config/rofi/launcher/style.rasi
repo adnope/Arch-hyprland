@@ -23,13 +23,10 @@ mode-switcher {
     enabled:                     false;
 }
 
+@import "~/.config/rofi/colors/may2025.rasi"
+
 /*****----- Global Properties -----*****/
 * {
-    foreground-alt:            rgba(255, 255, 255, 0.5);
-    background-alt:            rgba(147, 154, 183, 0.2);
-    background:                #1E2127FF;
-    foreground:                #FFFFFFFF;
-    selected:                  #939AB7FF;
     font:                        "JetBrains Mono Nerd Font 14";
 }
 
@@ -53,7 +50,7 @@ mainbox {
     border-color:                @selected;
     background-color:            @background;
     children:                    [ "inputbar", "listview"];
-    border:                      2px solid;
+    border:                      4px solid;
     border-color:                @selected;
 }
 

@@ -1,0 +1,26 @@
+// My own
+* {
+    background:                #1E2127FF;
+    background-alt:            #939AB733;
+    foreground:                #FFFFFFFF;
+    foreground-alt:            #FFFFFF80;
+    selected:                  #939AB7FF;
+}
+
+// // Gruvbox
+// * {
+//     background:     #282828FF;
+//     background-alt: #353535FF;
+//     foreground:     #EBDBB2FF;
+//     foreground-alt: #EBDBB280;
+//     selected:       #83A598FF;
+// }
+
+// // Cyberpunk
+// * {
+//     background:     #000B1EFF;
+//     background-alt: #0A1528FF;
+//     foreground:     #0ABDC6FF;
+//     foreground-alt:     #0ABDC680;
+//     selected:       #0ABDC6FF;
+// }
