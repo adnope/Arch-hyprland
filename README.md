@@ -1,6 +1,6 @@
 # My hyprland config for a fresh Arch installation
 
-[](assets/preview.png)
+![](assets/preview.png)
 
 ## 1. Initial setup & installation
 
