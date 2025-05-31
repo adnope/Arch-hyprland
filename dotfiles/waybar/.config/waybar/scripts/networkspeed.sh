@@ -2,7 +2,7 @@
 
 DEVICES=$(nmcli -t -f DEVICE,STATE,TYPE device |
     grep -w "connected" |
-    grep -v -E "^(dummy|lo:|virbr0)" | awk -F: '{print $3}')
+    grep -E ":(ethernet|wifi)$" | awk -F: '{print $3}')
 
 if [[ -z $DEVICES ]]; then
 	echo -e "󱛅 No network"
@@ -10,10 +10,10 @@ if [[ -z $DEVICES ]]; then
 fi
 
 if [[ $DEVICES == *"ethernet"* && $DEVICES == *"wifi"* ]]; then
-	INTERFACE=$(nmcli -t -f DEVICE,STATE,TYPE device | grep -w "connected" | grep -v -E "^(dummy|lo:|virbr0)" | grep "ethernet" | awk -F: '{print $1}')
+	INTERFACE=$(nmcli -t -f DEVICE,STATE,TYPE device | grep -w "connected" | grep "ethernet" | awk -F: '{print $1}')
 	INTERFACE_TYPE="ethernet"
 else
-	INTERFACE=$(nmcli -t -f DEVICE,STATE,TYPE device | grep -w "connected" | grep -v -E "^(dummy|lo:|virbr0)" | grep "$DEVICES" | awk -F: '{print $1}')
+	INTERFACE=$(nmcli -t -f DEVICE,STATE,TYPE device | grep -w "connected" | grep "$DEVICES" | awk -F: '{print $1}')
 	INTERFACE_TYPE="$DEVICES"
 fi
 

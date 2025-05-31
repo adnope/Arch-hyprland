@@ -25,7 +25,7 @@ theme="
     }
     window {
         border:                     0px;
-        width:                      450px;
+        width:                      800px;
         height:                     400px;
         /* properties for all widgets */
         enabled:                    true;
@@ -95,7 +95,7 @@ theme="
     }
 "
 
-pid=$(ps -u $USER -o pid,comm,%cpu,%mem | rofi -dmenu -i -theme-str "$theme" -p Kill || exit 0 | awk '{print $1}')
+pid=$(ps -u $USER -o pid,command | rofi -dmenu -i -theme-str "$theme" -p Kill || exit 0 | awk '{print $1}')
 
 if [[ -n $pid ]]; then
     kill -9 $pid

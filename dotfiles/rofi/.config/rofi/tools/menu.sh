@@ -72,12 +72,12 @@ script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 declare -A ACTION=(
   [Audio]="$script_dir/audioswitch.sh"
   [Calculator]="$script_dir/calculator.sh"
-  [Kill by name]="$script_dir/killprocess.sh"
+  [Kill process]="$script_dir/killprocess.sh"
   [Shutdown]="systemctl poweroff"
   [Reboot]="systemctl reboot"
   [Sleep]="systemctl suspend"
   [Hibernate]="systemctl hibernate"
-  [Kill by clicking]="hyprctl kill"
+  [Kill window]="hyprctl kill"
   [Lock]="hyprlock"
 )
 

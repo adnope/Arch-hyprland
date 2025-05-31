@@ -44,10 +44,12 @@
     "tooltip": false
   },
   "hyprland/window": {
-    "format": " {title}",
-    "max-length": 25,
+    "format": "[{class}] {title}",
+    "on-click": "$HOME/.config/hypr/window_info.sh",
+    "max-length": 40,
     "rewrite": {
-      // "(.*) Zen Browser": "🌎$1"
+      "(.*) — Zen Browser($)": "$1",
+      "(.*) - Visual Studio Code($)": "$1"
     }
   },
   "temperature": {
@@ -79,7 +81,7 @@
   "custom/distro": {
     "format": "  ",
     "tooltip": false,
-    "on-click": "$HOME/.config/rofi/systools/menu.sh"
+    "on-click": "$HOME/.config/rofi/tools/menu.sh"
   },
   "clock#time": {
     "format": " {:%H:%M}",
