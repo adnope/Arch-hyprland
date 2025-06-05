@@ -8,11 +8,12 @@
 }
 
 window#waybar {
-  background: #181926
+  background: #181926;
+  box-shadow: none;
 }
 
 window#waybar>box {
-  margin-bottom: 1px;
+  margin-bottom: 2px;
   background: #181926;
 }
 

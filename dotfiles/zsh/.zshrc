@@ -63,3 +63,9 @@ alias fkeys="sudo input-remapper-control --command start --device \"SONiX Gaming
 eval "$(starship init zsh)"
 eval "$(fzf --zsh)"
 eval "$(zoxide init zsh --cmd cd)"
+
+## [Completion]
+## Completion scripts setup. Remove the following line to uninstall
+[[ -f /home/adnope/.dart-cli-completion/zsh-config.zsh ]] && . /home/adnope/.dart-cli-completion/zsh-config.zsh || true
+## [/Completion]
+

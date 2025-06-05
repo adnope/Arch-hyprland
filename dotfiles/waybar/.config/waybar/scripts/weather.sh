@@ -2,7 +2,7 @@
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 API_KEY=$(<"$SCRIPT_DIR"/ignore/weather_api_key.env)
-LOCATION="Hanoi"
+LOCATION="Mai-Dich"
 
 declare -A ICONS=(
   ["113"]="☀️" ["116"]="⛅️" ["119"]="☁️" ["122"]="☁️" ["143"]="🌫"

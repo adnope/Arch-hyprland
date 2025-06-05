@@ -3,14 +3,14 @@
 theme="
     @import \"~/.config/rofi/colors/may2025.rasi\"
     * {
-        font: \"JetBrains Mono Nerd Font 14\";
+        font: \"JetBrains Mono Nerd Font 12\";
     }
     mode-switcher {
         enabled: false;
     }
     window {
-        width:                      400px;
-        height:                     400px;
+        width:                      800px;
+        height:                     600px;
         border:                     0px;
         /* properties for all widgets */
         enabled:                    true;
@@ -27,7 +27,7 @@ theme="
         border-color:               @selected;
     }
     inputbar {
-        padding:                    0px 0px 0px 10px;
+        padding:                    0px 0px 0px 15px;
         enabled:                    true;
         background-color:           transparent;
         text-color:                 @foreground;
@@ -39,6 +39,7 @@ theme="
         text-color:                 inherit;
     }
     entry {
+        padding:                    0px 0px 0px 10px;
         text-color:                 @foreground;
         cursor:                     text;
         spacing:                    0;
@@ -67,37 +68,4 @@ theme="
     }
 "
 
-script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-
-nightmode_state="$(ps -u $USER -o pid,command | grep "hyprsunset" | grep -v "grep")"
-if [[ -n $nightmode_state ]]; then
-    nightmode_state="On"
-    nightmode_param="Off"
-else
-    nightmode_state="Off"
-    nightmode_param="On"
-fi
-
-declare -A ACTION=(
-  [Audio]="$script_dir/audioswitch.sh"
-  [Calculator]="$script_dir/calculator.sh"
-  [Kill process]="$script_dir/killprocess.sh"
-  [Shutdown]="systemctl poweroff"
-  [Reboot]="systemctl reboot"
-  [Sleep]="systemctl suspend"
-  [Hibernate]="systemctl hibernate"
-  [Kill window]="hyprctl kill"
-  [Lock]="hyprlock"
-  [Night mode: $nightmode_state]="$HOME/MyScripts/nightmode.sh $nightmode_param"
-)
-
-modes=("${!ACTION[@]}")
-choice=$(printf '%s\n' "${modes[@]}" \
-         | sort \
-         | rofi -dmenu -i -p "Tools: " -theme-str "$theme" \
-         || exit 0)
-
-cmd="${ACTION[$choice]}"
-if [[ -n $cmd ]]; then
-  $cmd
-fi
+rofi -modi emoji -show emoji -emoji-mode insert -i -theme-str "$theme"

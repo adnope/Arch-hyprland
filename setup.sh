@@ -11,10 +11,10 @@ sudo pacman -S --needed base-devel && git clone https://aur.archlinux.org/yay.gi
 cd $SCRIPT_DIR
 
 # Main programs
-sudo pacman -S dunst fastfetch swaybg hyprpicker hyprlock kitty micro rofi-wayland rofi-calc starship waybar nemo nemo-fileroller spotify-launcher cliphist brightnessctl playerctl grim slurp swappy ark fzf zoxide eza bat guvcview nwg-look
+sudo pacman -S dunst fastfetch swaybg hyprpicker hyprpaper hyprlock hyprsunset kitty micro rofi-wayland rofi-calc starship waybar nemo nemo-fileroller spotify-launcher cliphist brightnessctl playerctl grim slurp swappy ark fzf zoxide eza bat guvcview nwg-look
 
 # System packages / Dependencies
-sudo pacman -S imagemagick blueman bluez ffmpegthumbnailer polkit-kde-agent kwallet kwallet-pam libheif libpulse libraw linux-headers linux-zen-headers network-manager-applet os-prober pavucontrol jq man tldr
+sudo pacman -S imagemagick blueman bluez ffmpegthumbnailer polkit-kde-agent kwallet kwallet-pam libheif libpulse libraw linux-headers linux-zen-headers network-manager-applet os-prober pavucontrol jq man tldr wtype
 
 # Yay packages
 yay -S input-remapper-git visual-studio-code-bin zen-browser-bin
@@ -27,7 +27,7 @@ sudo sudo systemctl enable bluetooth.service
 sudo sudo systemctl enable input-remapper.service
 
 # Stow dotfiles
-cd "$SCRIPT_DIR"/dotfiles && stow -t $HOME dunst fastfetch fcitx5 hypr input-remapper kitty micro MyScripts rofi starship waybar zsh
+cd "$SCRIPT_DIR"/dotfiles && stow -t $HOME dunst fastfetch fcitx5 hypr input-remapper kitty micro MyScripts rofi starship waybar zsh swappy electron-flags
 
 # COPY ASSETS
 cd "$SCRIPT_DIR"/assets

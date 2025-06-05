@@ -1,0 +1,5 @@
+[Default]
+save_dir=$HOME/Media/screenshots
+save_filename_format=%d_%m_%Y-%Hh%Mm%Ss-swappy.png
+show_panel=true
+auto_save=false
